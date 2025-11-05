@@ -1,0 +1,26 @@
+{
+  "name": "@alirezaomidi1999/sdk-fetch",
+  "version": "1.0.0",
+  "description": "A simple API SDK built with TypeScript and Orval",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "src/generated"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "scripts": {
+    "gen": "orval --config ./orval.config.ts",
+    "build": "tsup",
+    "prepublishOnly": "npm run gen && npm run build"
+  },
+  "devDependencies": {
+    "orval": "^7.13.2",
+    "tsup": "^8.5.0",
+    "typescript": "~5.9.3"
+  }
+}
