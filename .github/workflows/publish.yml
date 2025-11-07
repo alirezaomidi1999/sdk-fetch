@@ -3,8 +3,8 @@ name: Publish SDK-Fetch Package
 on:
   push:
     tags:
-      - 'v*.*.*'   # هر tag که با v شروع میشه، تریگر میشه
-  workflow_dispatch:   # امکان اجرای دستی
+      - "v*.*.*" # هر tag که با v شروع میشه، تریگر میشه
+  workflow_dispatch: # امکان اجرای دستی
 
 jobs:
   build-and-publish:
@@ -24,9 +24,9 @@ jobs:
         run: npm install
 
       - name: Build package
-        run: npm run build    # اگه script build نداری، میتونی حذفش کنی
+        run: npm run build # اگه script build نداری، میتونی حذفش کنی
 
       - name: Publish package
         run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
