@@ -1,35 +1,32 @@
-name: Publish Package to GitHub Packages
+name: Publish SDK-Fetch Package
 
 on:
   push:
     tags:
-      - 'v*'  # وقتی tag جدید مثل v1.0.1 ساخته بشه 
+      - 'v*.*.*'   # هر tag که با v شروع میشه، تریگر میشه
+  workflow_dispatch:   # امکان اجرای دستی
 
 jobs:
-  publish:
+  build-and-publish:
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: read
-      packages: write
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
           node-version: 20
-          registry-url: https://npm.pkg.github.com/
+          registry-url: https://npm.pkg.github.com
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Build package
-        run: npm run build
+        run: npm run build    # اگه script build نداری، میتونی حذفش کنی
 
-      - name: Publish to GitHub Packages
+      - name: Publish package
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
