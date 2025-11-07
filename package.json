@@ -1,6 +1,6 @@
 {
   "name": "@alirezaomidi1999/sdk-fetch",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A simple API SDK built with TypeScript and Orval",
   "type": "module",
   "main": "./dist/index.cjs",
