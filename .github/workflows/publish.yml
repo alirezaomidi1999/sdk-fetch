@@ -3,7 +3,7 @@ name: Publish Package to GitHub Packages
 on:
   push:
     tags:
-      - 'v*'  # وقتی tag جدید مثل v1.0.1 ساخته بشه
+      - 'v*'  # وقتی tag جدید مثل v1.0.1 ساخته بشه 
 
 jobs:
   publish:
